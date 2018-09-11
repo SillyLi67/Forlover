@@ -183,4 +183,3 @@ echo'</ul>';
 ?>
     </div>
   </div>
-<script src="../assets/datepicker/WdatePicker.js"></script>
