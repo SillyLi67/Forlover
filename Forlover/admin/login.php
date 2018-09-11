@@ -70,6 +70,5 @@ include './head.php';
           当前版本:<? echo VER; ?>
         </div>
       </div>
-		<div align="center"><script src="http://lm.qq8.co/api/lm.php"></script></div>
     </div>
   </div>
