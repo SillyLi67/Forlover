@@ -60,18 +60,10 @@ $mysqlversion=$DB->count("select VERSION()");
 		<b>当前源码版本：</b><?php echo VER; ?>
 		</li>
 		<li class="list-group-item">
-			<b>最新源码版本：</b>
-			<?php 
-			$url = 'https://yun.sillyli.com/forlover/ver.php';
-			$newver = file_get_contents($url);
-			echo $newver;
-			if($newver !== VER){
-				echo '<span style="color: #fd0000;text-align: center;">  可能存在新版本</span>';
-			}
-			?>
+			<b>最新源码版本：</b><script src="//yun.sillyli.com/forlover/verjs.php?ver=<?php echo VER; ?>"></script>
 		</li>
 		<li class="list-group-item">
-			<b>更新动态：</b><?php echo '<p><iframe src="https://yun.sillyli.com/forlover/updateinfo.php" style="width:100%;height:300px;"></iframe></p>' ?>
+			<b>更新动态：</b><?php echo '<p><iframe src="//yun.sillyli.com/forlover/updateinfo.php" style="width:100%;height:300px;"></iframe></p>' ?>
 		</li>
 	</ul>
 </div>
