@@ -27,17 +27,16 @@ $b = 10*$y;
                           if($row[$i]['qq'] !== ''){
                           echo "https://q.qlogo.cn/headimg_dl?dst_uin=".$row[$i]['qq']."&spec=100";
                           }else{
-                          echo "https://yun.sillyli.com/img/tx/tx_".rand(1,17).".jpg";
+                          echo "//yun.sillyli.com/img/tx/tx_".rand(1,17).".jpg";
                           }
                           ?>" alt="" class="avatar">
 				<div class="pp">
 				<span class="pname">
                   <? 
-                    if($row[$i]['realname'] !== ''){
+                    if($row[$i]['realname']){
                      echo $row[$i]['realname'];
                     }else{
-                      $url = "http://yun.sillyli.com/api/qqname.php?qq=".$row[$i]['qq'];
-                      file_get_contents($url);
+                      echo $row[$i]['qq'];
                     }
                   ?>
                   </span><br><span class="ptime"><? echo date("Y-m-d H:i:s",$row[$i]['time']) ?></span>
