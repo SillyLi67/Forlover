@@ -44,7 +44,7 @@ $mysqlversion=$DB->count("select VERSION()");
         <div class="panel-heading"><h3 class="panel-title">后台管理首页</h3></div>
           <ul class="list-group">
             <li class="list-group-item"><span class="glyphicon glyphicon-stats"></span> <b></b>表白数量/评论数量：<?php echo $count1.'/'.$count2?></li>
-            <li class="list-group-item"><span class="glyphicon glyphicon-time"></span> <b>现在时间：</b> <?=$date?></li>
+            <li class="list-group-item"><span class="glyphicon glyphicon-time"></span> <b>现在时间：</b> <?php echo $date; ?></li>
 			<li class="list-group-item"><span class="glyphicon glyphicon-home"></span> <a href="../" class="btn btn-xs btn-primary">返回首页</a>
                           <a href="./list.php" class="btn btn-xs btn-success">告白管理</a>&nbsp;<a href="./relist.php" class="btn btn-xs btn-warning">评论管理</a>
 			</li>
@@ -94,5 +94,22 @@ $mysqlversion=$DB->count("select VERSION()");
 		</li>
 	</ul>
 </div>
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title">所需环境支持信息</h3>
+	</div>
+	<ul class="list-group">
+		<li class="list-group-item">
+			<b>mysqli扩展：</b><?php echo checkclass('mysqli',true); ?>
+		</li>
+		<li class="list-group-item">
+			<b>PDO拓展：</b><?php echo checkclass('pdo',true); ?>
+		</li>
+		<li class="list-group-item">
+			<b>file_get_contents函数：</b><?php echo checkfunc('file_get_contents',true); ?>
+		</li>
+	</ul>
+</div>
+
     </div>
   </div>

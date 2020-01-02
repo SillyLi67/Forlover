@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `sillyli_config` (
   `v` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;</explode>
 INSERT INTO `sillyli_config` (`id`, `k`, `v`) VALUES
-(1, 'admin_user', 'sillyli'),
+(1, 'admin_user', 'admin'),
 (2, 'admin_pwd', '123456'),
 (3, 'title', 'SillyLi表白墙'),
 (4, 'keywords', '表白墙,告白墙,SillyLi'),

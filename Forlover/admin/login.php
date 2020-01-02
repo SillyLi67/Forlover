@@ -1,6 +1,7 @@
 <?php
 /**
- * 登录
+  登录
+  sillyli.com
 **/
 include("../php/common.php");
 if(isset($_POST['user']) && isset($_POST['pass'])){
@@ -67,7 +68,7 @@ include './head.php';
               <div class="col-xs-12"><input type="submit" value="登陆" class="btn btn-primary form-control"/></div>
             </div>
           </form>
-          当前版本:<? echo VER; ?>
+          当前版本:<?php echo VER; ?>
         </div>
       </div>
     </div>

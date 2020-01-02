@@ -1,6 +1,7 @@
 <?php
 /**
- * 系统设置
+   网站配置
+   sillyli.com
 **/
 include("../php/common.php");
 $title='后台管理';

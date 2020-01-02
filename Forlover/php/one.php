@@ -1,34 +1,69 @@
 <?php
-/*
-file:index.php
-Date:2019.11.11 8:48
-Help: sillyli.com
-*/
-include 'header.php';
-$y = xss_clean(daddslashes($_GET['y']));
-if($y == ''){ $y=1;}
-$a = 10*($y-1);
-$b = 10*$y;
-  $sql = "SELECT * FROM `sillyli_lovemsg` order by id desc limit $a,$b";
+include 'common.php';
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="SillyLi-yun" content="<?php echo VER;?>">
+    <meta http-equiv="keywords" content="<?php echo $conf['keywords']; ?>">
+	<title><?php echo $conf['title']; ?></title>
+    <meta name="description" content="<?php echo $conf['description']; ?>" />
+    <link rel="SHORTCUT ICON" href="../favicon.ico">
+	<link rel="stylesheet" href="../css/style.css">
+	<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../js/forlove.js"></script>
+    <script type="text/javascript" src="../js/sillyli.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<script>
+	var URL = "../php"
+    var APP = "index.php";
+    $(function(){
+    	if(0==1){
+    		$.get('/index.php/home/index/nc', function(data) {
+    		$(".wenc").html(data);
+    		$(".ncmask").fadeIn(200);
+    		});
+    	}
+    })
+	</script>
+</head>
+<body>
+	<div class="header">
+		<div class="tophead">
+			<h1><?php echo $conf['title'] ?></h1>
+		</div>
+		<img src="../images/logo.png" alt="告白墙" class="logo"><br>
+		<a href="../" class="butt">去首页表白</a>
+	</div>
+	<div class="search">
+		<form action="" onsubmit="return false" class="sform">
+			<input type="text" name="k" placeholder="请输入您要搜索的表白内容" class="his sin">
+			<div class="sjiao">搜索</div>
+		</form>
+	</div>
+<div class="ncmask">
+	<div class="allnotic">
+	<div class="cls"><a href="javascript:cls()" class="node">X</a></div>
+	<div class="wenc">
+		提示
+	</div>
+</div>
+</div>
+<?php
+$id = xss_clean(daddslashes($_GET['id']));
+
+  $sql = "SELECT * FROM `sillyli_lovemsg` WHERE id=$id";
   $num = $conn->query($sql);
   $row = $num->fetchAll();
+  $i=0;
 ?>
 <div class="wrap">
 <div class="main">
-<?php
-  $j = count($row);
-  if($j>10){
-   $j =10;
-  }
-  $i = 0;
-  while($i <= $j-1 ){
-?>
 	<div class="point">
-		<div class="zzan">
-			<a href="javascript:" class="jzan"><span id="<?php echo $id = $row[$i]['id'] ?>"><?php echo $row[$i]['zan'] ?></span><img src="images/zan.png" alt="zan" class="zan" /></a>	
-		</div>
-      <div class="sshare">
-        	<a href="php/one.php?id=<?php echo $id = $row[$i]['id'] ?>"><img src="images/share.png" alt="share" class="share" />分享</a>
+		<div class="zzan" style="right:10px;" >
+			<a href="javascript:" class="jzan"><span id="<?php echo $id = $row[$i]['id'] ?>"><?php echo $row[$i]['zan'] ?></span><img src="../images/zan.png" alt="" class="zan"/></a>	
 		</div>
 			<div class="ptop">
 				<img src="<?php 
@@ -40,7 +75,7 @@ $b = 10*$y;
                           ?>" alt="" class="avatar">
 				<div class="pp">
 				<span class="pname">
-                  <?php
+                  <?php 
                     if($row[$i]['realname']){
                      echo $row[$i]['realname'];
                     }else{
@@ -85,36 +120,10 @@ $b = 10*$y;
 				</form>
 			</div>
 		</div>	
- <?php $i++; } ?>
-  <div class="page"><div>
+  <div class="point">
+				<p>复制本页面链接，或分享此页面仅展示你的表白哦！</p>
+		</div>	
+  </div>
 <?php
-$sql = "select count(id) from `sillyli_lovemsg` ";
-$num = $conn->query($sql);
-$row = $num->fetch();
-$j = $row['count(id)'];
-if($j > 10){
- $ye = ceil($j/10);
- $y1 = 1;
- if($y>4){
-   $y1 =$y-4;
-   $rrt = $y - 1;
-   echo '<a class="first" href="/index.php?y=1">1...</a> <a class="prev" href="/index.php?y='.$rrt.'"><<</a>';
- }
- while($y1 < $y){
-  echo '<a class="num" href="/index.php?y='.$y1.'">'.$y1.'</a>';
-  $y1++;
- }
- echo '<span class="current">'.$y.'</span>';
- $y2 = $y+1;
- while($y2-$y < 6 and $y2 < $ye){
-  echo '<a class="num" href="/index.php?y='.$y2.'">'.$y2.'</a>';
-  $y2++;
- }
-  $yn = $y+1;
-  echo '<a class="next" href="/index.php?y='.$yn.'">>></a> <a class="end" href="/index.php?y='.$ye.'">'.$ye.'</a></div></div>';
-}
-?>
-</div>
-<?php
-include 'foot.php';
+include '../foot.php';
 ?>

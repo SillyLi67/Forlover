@@ -256,4 +256,34 @@ function xss_clean($data){
     }while($old_data!==$data);
   return $data;
 }
+function get_img_url(){
+	return "//yun.sillyli.com/img/tx/tx_".mt_rand(1,23).".jpg";
+}
+function get_qqlogo_url($qq){
+	return "https://q.qlogo.cn/headimg_dl?dst_uin=".$qq."&spec=100";
+}
+
+function checkfunc($f,$m = false) {
+	if (function_exists($f)) {
+		return '<font color="green">可用</font>';
+	} else {
+		if ($m == false) {
+			return '<font color="black">不支持</font>';
+		} else {
+			return '<font color="red">不支持</font>';
+		}
+	}
+}
+
+function checkclass($f,$m = false) {
+	if (class_exists($f)) {
+		return '<font color="green">可用</font>';
+	} else {
+		if ($m == false) {
+			return '<font color="black">不支持</font>';
+		} else {
+			return '<font color="red">不支持</font>';
+		}
+	}
+}
 ?>

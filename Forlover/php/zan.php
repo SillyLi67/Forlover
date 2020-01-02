@@ -8,7 +8,7 @@ echo '-1';
 die();
 }
 
-setcookie('zan_'.$id,$id,time()+864000,'/php/zan.php');
+setcookie('zan_'.$id,$id,time()+864000,'/');
 
 $sql = "UPDATE `sillyli_lovemsg` SET `zan` = zan + 1 WHERE `id` = '".$id."'";
 $conn->query($sql);

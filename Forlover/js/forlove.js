@@ -1,3 +1,9 @@
+/*
+file:forlove.js
+From:sillyli.com
+Date:2019.11.12 06:24
+*/
+
  function cls() {
 	$(".ncmask").fadeOut(200);
 }
@@ -107,7 +113,7 @@ $(function() {
 						$(".hidegaobaisubmit").removeAttr("disabled");
 						$(".hidegaobaisubmit").attr("value", "发布");
 					} else if (data == -3) {
-						$(".notic").html("未填写QQ 请填写一个昵称以这个昵称匿名发布你的表白");
+						$(".notic").html("请填写一个昵称将以这个昵称发布你的表白");
 						$(".notic").fadeIn().delay(1000).fadeOut();
 						$(".hidegaobaisubmit").removeAttr("disabled");
 						$(".hidegaobaisubmit").attr("value", "发布");
@@ -118,7 +124,7 @@ $(function() {
 						$(".hidegaobaisubmit").attr("value", "发布");
 					}  else if (data == 1) {
 						$.ajax({
-							url: "/",
+							url: "./",
 							cache: false,
 							success: function(html) {
 								$(".wrap").delay(2000).empty();
@@ -154,7 +160,7 @@ $(function() {
 	$("#ilink").live('click', function() {
 		$(".load").show();
 		$.ajax({
-			url: URL,
+			url: "./",
 			cache: false,
 			success: function(html) {
 				$(".wrap").empty();

@@ -7,7 +7,7 @@ $towho = xss_clean(daddslashes($_POST['towho']));
 $msg = xss_clean(daddslashes($_POST['content']));
 $time = time();
 
-if($qq == '' and $realname == ''){
+if($realname == ''){
     die('-3');
 }
 if($qq !== ''){

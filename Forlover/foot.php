@@ -17,9 +17,9 @@
 		<p>我要告白<span class="close"><a href="javascript:closes()" class="node">X</a></span></p>
         QQ：<h5>填写后则使用QQ头像作为表白头像</h5>
 		<p><input type="text" name="qq" id="qq" placeholder="匿名请留空" class="his" value=""></p>
-        昵称：
-		<p><input type="text" name="realname" placeholder="使用QQ昵称请留空" class="his" id="grealname" value=""></p>
-        <h5>使用QQ昵称可随QQ昵称变化而变化 匿名表白请填写昵称</h5>
+        你的昵称：
+		<p><input type="text" name="realname" placeholder="请填写你的昵称" class="his" id="grealname" value=""></p>
+		告白信息:
 		<p><input type="text" name="towho" placeholder="告白对象..." class="his" id="gtowho"></p>
 		<p><textarea name="content" cols="30" rows="5" placeholder="这是我要说的话" class="his" id="gcontent"></textarea></p>
 		<p><input type="submit" value="发布" class="hidegaobaisubmit"></p>
@@ -38,11 +38,11 @@
 </div>
 
 	<div class="footer">
-    <p>版权所有 &copy; 2018 SillyLi表白墙程序</p>
-<p><? echo $conf['beian'] ?></p>
-<? echo $conf['footer'] ?>
-<? echo $conf['ad'] ?>
-<div style="display:none"><? echo $conf['163music'] ?></div>
+    <p>版权所有 &copy; 2018-2019 SillyLi表白墙程序</p>
+<p><?php echo $conf['beian'] ?></p>
+<?php echo $conf['footer'] ?>
+<?php echo $conf['ad'] ?>
+<div style="display:none"><?php echo $conf['163music'] ?></div>
 <span id="sitetime"></span><iframe src="https://yun.sillyli.com" width="0" height="0"></iframe>
 <script language=javascript>
     function siteTime(){
@@ -59,7 +59,7 @@
         var todayHour = today.getHours();
         var todayMinute = today.getMinutes();
         var todaySecond = today.getSeconds();
-        var t1 = Date.UTC(<? echo date("Y,m,d,H,i,s",$conf['time']) ?>);
+        var t1 = Date.UTC(<?php echo date("Y,m,d,H,i,s",$conf['time']) ?>);
         var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
         var diff = t2-t1;
         var diffYears = Math.floor(diff/years);

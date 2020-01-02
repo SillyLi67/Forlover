@@ -1,9 +1,10 @@
 <?php
 /**
- * 代点列表
+  告白列表
+  sillyli.com
 **/
 include("../php/common.php");
-$title='代点列表';
+$title='告白列表';
 include './head.php';
 include '../php/config.php';
 if($islogin==1){}else exit("<script language='javascript'>window.location.href='./login.php';</script>");
@@ -107,7 +108,7 @@ echo '<hr/><a href="./list.php">>>返回告白列表</a></div></div>';
   echo '<div class="panel panel-primary">
 <div class="panel-heading w h"><h3 class="panel-title">删除任务</h3></div>
 <div class="panel-body box">
-即将删除ID为:'.$id.'的任务，是否继续？<br><a href="./list.php?or=del_sure&id='.$id.'">确认</a> | <a href="javascript:history.back();">返回</a></div></div>';
+即将删除ID为:'.$id.'的告白，是否继续？<br><a href="./list.php?or=del_sure&id='.$id.'">确认</a> | <a href="javascript:history.back();">返回</a></div></div>';
 echo '<hr/><a href="./list.php">>>返回告白列表</a></div></div>';
 }elseif($or == 'del_sure' and $_GET['id']){
   $id = $_GET['id'];

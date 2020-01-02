@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-@header('Content-Type: text/html; charset=UTF-8');
+header('Content-Type: text/html; charset=UTF-8');
 $do=isset($_GET['do'])?$_GET['do']:'0';
 if(file_exists('install.lock')){
 	$installed=true;
@@ -42,11 +42,6 @@ function checkclass($f,$m = false) {
 <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no,minimal-ui">
 <title>SillyLi表白墙程序安装向导</title>
 <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
-<!--[if lt IE 9]>
-	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
 
 </head>
 <body>
@@ -54,9 +49,9 @@ function checkclass($f,$m = false) {
     <div class="container">
       <div class="navbar-header">
         <span class="navbar-brand">SillyLi表白墙程序安装向导</span>
-      </div><!-- /.navbar-header -->
-    </div><!-- /.container -->
-  </nav><!-- /.navbar -->
+      </div>
+    </div>
+  </nav>
   <div class="container" style="padding-top:60px;">
     <div class="col-xs-12 col-sm-8 col-lg-6 center-block" style="float: none;">
 
@@ -102,16 +97,22 @@ function checkclass($f,$m = false) {
 			<td>PHP版本支持</td>
 		</tr>
 		<tr>
-			<td>curl_exec()</td>
+			<td>PDO扩展</td>
 			<td>必须</td>
-			<td><?php echo checkfunc('curl_exec',true); ?></td>
-			<td>抓取网页</td>
+			<td><?php echo checkclass('pdo',true); ?></td>
+			<td>数据库连接</td>
 		</tr>
 		<tr>
-			<td>file_get_contents()</td>
+			<td>mysqli扩展</td>
+			<td>必须</td>
+			<td><?php echo checkclass('mysqli',true); ?></td>
+			<td>数据库连接</td>
+		</tr>
+		<tr>
+			<td>file_get_contents函数</td>
 			<td>必须</td>
 			<td><?php echo checkfunc('file_get_contents',true); ?></td>
-			<td>读取文件</td>
+			<td>云服务</td>
 		</tr>
 	</tbody>
 </table>
@@ -305,7 +306,7 @@ if($e==0) {
 	<div class="panel-body">
 <?php
 	@file_put_contents("install.lock",'安装锁');
-	echo '<div class="alert alert-info"><font color="green">安装完成！管理账号和密码是:sillyli/123456(用户名密码均区分大小写)</font><br/><br/><a href="../">>>网站首页</a>｜<a href="../admin/">>>后台管理</a><hr/>更多设置选项请登录后台管理进行修改。<br/><br/><font color="#FF0033">如果你的空间不支持本地文件读写，请自行在install/ 目录建立 install.lock 文件,或删除install目录以保证安全！</font></div>';
+	echo '<div class="alert alert-info"><font color="green">安装完成！管理账号和密码是:admin/123456(用户名密码均区分大小写)</font><br/><br/><a href="../">>>网站首页</a>｜<a href="../admin/">>>后台管理</a><hr/>更多设置选项请登录后台管理进行修改。<br/><br/><font color="#FF0033">如果你的空间不支持本地文件读写，请自行在install/ 目录建立 install.lock 文件,或删除install目录以保证安全！</font></div>';
 ?>
 	</div>
 </div>
@@ -323,7 +324,7 @@ if($e==0) {
 	<div class="panel-body">
 <?php
 	@file_put_contents("install.lock",'安装锁');
-	echo '<div class="alert alert-info"><font color="green">安装完成！管理账号和密码是:sillyli/123456(用户名密码均区分大小写)</font><br/><br/><a href="../">>>网站首页</a>｜<a href="../admin/">>>后台管理</a><hr/>更多设置选项请登录后台管理进行修改。<br/><br/><font color="#FF0033">如果你的空间不支持本地文件读写，请自行在install/ 目录建立 install.lock 文件,或删除install目录以保证安全！</font></div>';
+	echo '<div class="alert alert-info"><font color="green">安装完成！管理账号和密码是:admin/123456(用户名密码均区分大小写)</font><br/><br/><a href="../">>>网站首页</a>｜<a href="../admin/">>>后台管理</a><hr/>更多设置选项请登录后台管理进行修改。<br/><br/><font color="#FF0033">如果你的空间不支持本地文件读写，请自行在install/ 目录建立 install.lock 文件,或删除install目录以保证安全！</font></div>';
 ?>
 	</div>
 </div>

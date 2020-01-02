@@ -3,22 +3,22 @@ include 'php/common.php';
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
-    <meta name="SillyLi-yun" content="<? echo VER ?>">
-    <meta http-equiv="keywords" content="<? echo $conf['keywords'] ?>">
-	<title><? echo $conf['title'] ?></title>
-    <meta name="description" content="<? echo $conf['description'] ?>" />
+    <meta name="SillyLi-yun" content="<?php echo VER;?>">
+    <meta http-equiv="keywords" content="<?php echo $conf['keywords']; ?>">
+	<title><?php echo $conf['title']; ?></title>
+    <meta name="description" content="<?php echo $conf['description']; ?>" />
     <link rel="SHORTCUT ICON" href="favicon.ico">
-	<link rel="stylesheet" href="/css/style.css">
-	<script type="text/javascript" src="https://apps.bdimg.com/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/forlove.js"></script>
-    <script type="text/javascript" src="/js/sillyli.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="js/forlove.js"></script>
+    <script type="text/javascript" src="js/sillyli.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 	<script>
-	var URL = "/php";
-    var APP = "/index.php";
+	var URL = "php"
+    var APP = "index.php";
     $(function(){
     	if(0==1){
     		$.get('/index.php/home/index/nc', function(data) {
@@ -32,13 +32,13 @@ include 'php/common.php';
 <body>
 	<div class="header">
 		<div class="tophead">
-			<h1><? echo $conf['title'] ?></h1>
+			<h1><?php echo $conf['title'] ?></h1>
 		</div>
-		<img src="/images/logo.png" alt="告白墙" class="logo"><br>
+		<img src="images/logo.png" alt="告白墙" class="logo"><br>
 		<a href="javascript:" class="butt">我要表白</a>
 		<div class="nav">
 			<ul>
-				<li><a href="/">首页</a></li>
+				<li><a href="javascript:" id="ilink">首页</a></li>
 				<li><a href="javascript:" id="slink">搜索</a></li>
 				<li><a href="javascript:" id="alink">关于</a></li>
 			</ul>

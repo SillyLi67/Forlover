@@ -20,33 +20,36 @@ $b = 10*$y;
 ?>
 	<div class="point">
 		<div class="zzan">
-			<a href="javascript:" class="jzan"><span id="<? echo $id = $row[$i]['id'] ?>"><? echo $row[$i]['zan'] ?></span><img src="/images/zan.png" alt="" class="zan"></a>	
+			<a href="javascript:" class="jzan"><span id="<?php echo $id = $row[$i]['id'] ?>"><?php echo $row[$i]['zan'] ?></span><img src="images/zan.png" alt="" class="zan"></a>	
+		</div>
+		<div class="sshare">
+        	<a href="php/one.php?id=<?php echo $id = $row[$i]['id'] ?>"><img src="images/share.png" alt="share" class="share" />分享</a>
 		</div>
 			<div class="ptop">
-				<img src="<? 
+				<img src="<?php 
                           if($row[$i]['qq'] !== ''){
-                          echo "https://q.qlogo.cn/headimg_dl?dst_uin=".$row[$i]['qq']."&spec=100";
+                          echo get_qqlogo_url($row[$i]['qq']);
                           }else{
-                          echo "//yun.sillyli.com/img/tx/tx_".rand(1,17).".jpg";
+                          echo get_img_url();
                           }
                           ?>" alt="" class="avatar">
 				<div class="pp">
 				<span class="pname">
-                  <? 
+                  <?php 
                     if($row[$i]['realname']){
                      echo $row[$i]['realname'];
                     }else{
                       echo $row[$i]['qq'];
                     }
                   ?>
-                  </span><br><span class="ptime"><? echo date("Y-m-d H:i:s",$row[$i]['time']) ?></span>
+                  </span><br><span class="ptime"><?php echo date("Y-m-d H:i:s",$row[$i]['time']) ?></span>
 				</div>
 			</div>
 			<div class="pmain">
-				<p><span class="towho"><? echo $row[$i]['towho'] ?></span><? echo $row[$i]['msg'] ?></p>
+				<p><span class="towho"><?php echo $row[$i]['towho'] ?></span><?php echo $row[$i]['msg'] ?></p>
 			</div>
 			<div class="pf">
-				<ul id="reply-<? echo $id ?>" class="hidethis">
+				<ul id="reply-<?php echo $id ?>" class="hidethis">
                   <?php
                     $sqls = "SELECT * FROM `sillyli_reply` WHERE `gid` = '$id' ";
                     $nums = $conn->query($sqls);
@@ -73,12 +76,12 @@ $b = 10*$y;
 				<form action="" method="post" onsubmit="return false">
 					<div class="line">
 						<input type="text" name="reply" placeholder="我也说两句" class="pliu">
-						<div class="pjiao" id="<? echo $id ?>">提交</div>
+						<div class="pjiao" id="<?php echo $id ?>">提交</div>
 					</div>
 				</form>
 			</div>
 		</div>	
- <? $i++; } ?>
+ <?php $i++; } ?>
   <div class="page"><div>
 <?php
 $sql = "select count(id) from `sillyli_lovemsg` ";
